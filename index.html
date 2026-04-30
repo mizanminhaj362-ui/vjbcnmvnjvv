@@ -1,165 +1,214 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>GAMING MINHAJ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GAMING MINHAJ SET-UP</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Roboto:wght@300;400;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* GLOBAL */
-*{
-  font-family:'Hind Siliguri','Noto Sans Bengali','Poppins','Roboto',sans-serif !important;
-  box-sizing:border-box;
+/* 🌌 GLOBAL */
+html { font-size: clamp(14px, 2.5vw, 18px); }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #020617;
+  font-family: 'Poppins', sans-serif;
+  color: #e2e8f0;
+  text-align: center;
+  line-height: 1.5;
 }
 
-body{
-  margin:0;
-  background:linear-gradient(135deg,#0b1020,#0f172a);
-  color:white;
-  text-align:center;
-  font-size:clamp(14px,2.5vw,16px);
-}
-
-/* SMOOTH TOUCH ANIMATION FOR ALL BUTTONS */
-button, a, .card{
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+button{
   -webkit-tap-highlight-color: transparent;
+  outline: none;
 }
 
-/* PRESS EFFECT (TOUCH ZOOM IN) */
-button:active,
-a:active,
-.card:active{
-  transform: scale(0.92);
+/* LOADER */
+#loader{
+  position: fixed;
+  inset: 0;
+  background: #020617;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-/* TITLE */
-h1{
-  font-size:clamp(18px,4vw,28px);
+.loader-box{width:80%;max-width:300px;}
+
+.loader-text{
+  font-family:'Orbitron',sans-serif;
+  color:#00f5ff;
+  font-size: 14px;
+  margin-bottom:15px;
+  letter-spacing:2px;
 }
 
-/* TYPING */
-.typing{
-  font-size:clamp(15px,3.5vw,20px);
-  font-weight:800;
-  color:rgba(0,245,255,0.85);
-  white-space:nowrap;
+.bar{
+  width:100%;
+  height:10px;
+  background:#111827;
+  border-radius:50px;
   overflow:hidden;
-  display:inline-block;
-  margin:10px auto;
-  border-right:2px solid rgba(0,245,255,0.8);
-  animation:typing 4s steps(40,end) forwards, blink .7s infinite;
 }
-@keyframes typing{from{width:0} to{width:100%}}
-@keyframes blink{50%{border-color:transparent;}}
 
-/* SOCIAL */
-.social{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
+.progress{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#00f5ff,#0ea5e9);
+  animation:load 2s ease forwards;
+}
+
+@keyframes load{ to{width:100%} }
+
+/* HEADER */
+header{
+  padding:20px;
+  font-family:'Orbitron',sans-serif;
+  font-size: clamp(20px, 5vw, 32px);
+  color:#00f5ff;
+  text-shadow:0 0 15px #00f5ff;
+  border-bottom:2px solid #00f5ff;
+}
+
+.logo{
+  font-size: clamp(40px, 10vw, 70px);
   margin:15px 0;
 }
 
-.social a{
-  padding:10px 14px;
-  border-radius:10px;
-  color:white;
-  text-decoration:none;
-  font-weight:600;
-  min-width:90px;
-  font-size:clamp(12px,3vw,14px);
-  display:inline-block;
-}
-
-/* COLORS */
-.telegram { background:#229ED9; box-shadow:0 0 12px #229ED9; }
-.youtube { background:#ff0000; box-shadow:0 0 12px #ff0000; }
-.facebook { background:#1877F2; box-shadow:0 0 12px #1877F2; }
-
 /* CARD */
 .card{
+  background:rgba(0,245,255,0.05);
+  border:1px solid rgba(0,245,255,0.2);
   margin:20px auto;
-  padding:18px;
-  width:80%;
-  border-radius:12px;
-  cursor:pointer;
-  background:linear-gradient(45deg,#22c55e,#4ade80);
-  color:black;
-  font-weight:600;
-  box-shadow:0 0 15px #22c55e;
-  font-size:clamp(14px,3.5vw,18px);
+  padding:25px;
+  max-width:500px;
+  border-radius:15px;
 }
+
+/* FADE UI */
+header, .card, .logo{
+  opacity:0;
+  transform:translateY(20px);
+}
+
+.show-ui header,
+.show-ui .logo,
+.show-ui .card{
+  animation:fadeUp 0.5s ease forwards;
+}
+
+@keyframes fadeUp{
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* BUTTON */
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.25s;
+  color:white;
+}
+
+button:hover{
+  transform:scale(1.05);
+  filter:brightness(1.2);
+}
+
+button:active{
+  transform:scale(0.97);
+}
+
+.main-btn{
+  background:linear-gradient(45deg,#00f5ff,#0ea5e9);
+  color:black;
+  box-shadow:0 0 20px rgba(0,245,255,0.6);
+}
+
+.fb{background:#1877F2; box-shadow:0 0 25px rgba(24,119,242,0.7);}
+.yt{background:#FF0000; box-shadow:0 0 25px rgba(255,0,0,0.7);}
+.tg{background:#0088cc; box-shadow:0 0 25px rgba(0,136,204,0.7);}
 
 /* POPUP */
 .popup{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.75);
+  background:rgba(0,0,0,0.85);
   justify-content:center;
   align-items:center;
-  z-index:999;
+  z-index:1000;
 }
 
-.popup-content{
-  background:#1e293b;
-  width:min(85%,320px);
-  padding:16px;
+.popup.show{display:flex;}
+
+.popup-box{
+  background:#111827;
+  width:90%;
+  max-width:350px;
+  padding:25px;
   border-radius:12px;
-  box-shadow:0 0 20px rgba(56,189,248,0.7);
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  align-items:center;
 }
 
-.popup-content h2 {
-  font-size: clamp(14px, 3.5vw, 18px);
+/* ===== FIXED POPUP ANIMATION ===== */
+.popup-box button{
+  opacity:0;
+  transform:translateY(40px);
 }
 
-.popup-content p{
-  font-size:clamp(11px,2.8vw,14px);
-  margin:3px 0;
-  line-height:1.4;
+/* smooth fade + slide up */
+.popup.show .popup-box button{
+  animation: popUp 0.5s ease forwards;
 }
 
-/* BUTTONS */
-.download, .close{
-  width:100%;
-  max-width:220px;
-  padding:10px;
-  border:none;
-  border-radius:8px;
-  font-weight:600;
-  color:white;
-  text-align:center;
-  display:inline-block;
-  text-decoration:none;
-  font-size:clamp(12px,3vw,14px);
+@keyframes popUp{
+  0%{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
-/* COLORS */
-.download {
-  background: linear-gradient(45deg, #22c55e, #16a34a);
-  box-shadow: 0 0 10px #22c55e;
+/* stagger (bottom to top feel) */
+.popup.show .popup-box button:nth-of-type(1){animation-delay:0.1s;}
+.popup.show .popup-box button:nth-of-type(2){animation-delay:0.25s;}
+.popup.show .popup-box button:nth-of-type(3){animation-delay:0.4s;}
+
+/* BUTTON COLORS */
+.popup-box button:not(.setup-btn):not(.close-btn){
+  background:linear-gradient(45deg,#00f5ff,#0ea5e9);
+  color:black;
+  box-shadow:0 0 18px rgba(0,245,255,0.9);
 }
 
-.close {
-  background: linear-gradient(45deg, #ef4444, #dc2626);
-  box-shadow: 0 0 10px #ef4444;
+.setup-btn{
+  background:linear-gradient(45deg,#a855f7,#6366f1);
+  box-shadow:0 0 18px rgba(168,85,247,0.9);
+}
+
+.close-btn{
+  background:#ff0000;
+  box-shadow:0 0 18px rgba(255,0,0,0.9);
 }
 
 /* FOOTER */
 footer{
   margin-top:30px;
   padding:15px;
-  color:#94a3b8;
-  font-size:clamp(12px,2.5vw,14px);
+  font-size:13px;
+  opacity:0.7;
 }
 
 </style>
@@ -167,64 +216,79 @@ footer{
 
 <body>
 
-<h1>🚀 আমার অ্যাপসমূহ সেট-আপ</h1>
-<div class="typing" id="typingText"></div>
-
-<div class="social">
-  <a class="telegram" href="https://t.me/mdminhajafrad1" target="_blank">Telegram</a>
-  <a class="youtube" href="https://youtube.com/@gaming_minhaj_ff" target="_blank">YouTube</a>
-  <a class="facebook" href="https://www.facebook.com/share/16jbNHUaaL/" target="_blank">Facebook</a>
-</div>
-
-<div class="card" onclick="openPopup('popup1')">
-🔥 Like + Visitor Bot Setup
-</div>
-
-<!-- POPUP 1 -->
-<div class="popup" id="popup1">
-  <div class="popup-content">
-    <h2>🔥 Like+Visitor Bot সেট-আপ</h2>
-    <p>Step 1 -: অ্যাপ ইনস্টল করুন !</p>
-    <p>Step 2 -: অ্যাপ ওপেন করুন !</p>
-    <p>Step 3 -: অ্যাপ এর ভিতরে থাকা টেলিগ্রাম গ্রুপে জয়েন করুন !</p>
-    <p>Step 4 -: এখন মেসেজে যান !</p>
-    <p>Step 5 -: / দিয়ে visit লিখে bd লিখে তারপর আপনার uid দিবেন !</p>
-    <p>যেমন -: /visit bd 1109118534</p>
-    <p>Step 6 -: তারপর গেম ওপেন করুন !</p>
-    <p>⚠️ যদি অ্যাপ ইনস্টল করতে ভুলে যান তাহলে নিচের দেওয়া ওয়েবসাইট থেকে ডাওনলোড করে নিন 📢</p>
-    
-    <a class="download" href="https://gamingminhaj.netlify.app/" target="_blank">⬇ Download</a>
-    <button class="close" onclick="closePopup('popup1')">Close</button>
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-box">
+    <div class="loader-text">LOADING GAMING MINHAJ...</div>
+    <div class="bar"><div class="progress"></div></div>
   </div>
 </div>
 
-<footer>© 2026 MINHAJ AFRAD SET-UP</footer>
+<header>💫 GAMING ☆ MINHAJ 💫</header>
+
+<div class="logo">🔥🔥🔥</div>
+
+<div class="card">
+  <h2>Hi I'm Minhaj Afrad ! Follow Me 😎</h2>
+</div>
+
+<div class="card">
+  <h2>👇👇 Download Link 👇👇</h2>
+
+  <button class="main-btn" onclick="openPopup('popup1')">📥 DOWNLOAD GIFT SEND PROXY</button>
+  <button class="main-btn" onclick="openPopup('popup2')">📥 DOWNLOAD LIKE+VISITOR BOT</button>
+</div>
+
+<div class="card">
+  <h2>📢 FOLLOW MY OTHERS MEDIA</h2>
+
+  <button class="fb" onclick="window.open('https://www.facebook.com/share/16jbNHUaaL/')">Facebook</button>
+  <button class="yt" onclick="window.open('https://youtube.com/@gaming_minhaj_ff?si=qyyAM2Xa-ow4T6qm')">YouTube</button>
+  <button class="tg" onclick="window.open('https://t.me/mdminhajafrad1')">Telegram</button>
+</div>
+
+<footer>© 2026 MINHAJ AFRAD</footer>
+
+<!-- POPUP 1 -->
+<div id="popup1" class="popup">
+  <div class="popup-box">
+    <h2>DOWNLOAD GIFT SEND PROXY</h2>
+    <p>🔐 Password: No</p>
+
+    <button onclick="window.open('https://www.mediafire.com/file/o7wb9sjfv9av195/MR-TOM-GIFT-SEND-PROXY.apk/file')">⬇️ Download App</button>
+    <button class="download-btn" onclick="window.open('https://www.mediafire.com/file/5d45xx0eyd76ke9/eEagle_VPN_2.10.5_110.apk/file')">⬇️ Download Vpn</button>
+    <button class="setup-btn" onclick="window.open('https://gamingminhajsetup.netlify.app/')">🎬 SET-UP</button>
+    <button class="close-btn" onclick="closePopup('popup1')">CLOSE</button>
+  </div>
+</div>
+
+<!-- POPUP 2 -->
+<div id="popup2" class="popup">
+  <div class="popup-box">
+    <h2>FF Like+Visitor Group</h2>
+    <p>🔐 Password: No</p>
+
+    <button onclick="window.open('https://www.mediafire.com/file/aaif3qlhx2hdret/VIP+VISIT+BOT+GROUP+1.0.0_1.apk/file')">⬇️ OPEN LINK</button>
+    <button class="setup-btn" onclick="window.open('https://gamingminhajsetup.netlify.app/')">🎬 SET-UP</button>
+    <button class="close-btn" onclick="closePopup('popup2')">CLOSE</button>
+  </div>
+</div>
 
 <script>
-
 function openPopup(id){
-  document.getElementById(id).style.display="flex";
-  document.body.style.overflow="hidden";
+  document.getElementById(id).classList.add("show");
 }
 
 function closePopup(id){
-  document.getElementById(id).style.display="none";
-  document.body.style.overflow="auto";
+  document.getElementById(id).classList.remove("show");
 }
 
-/* TYPING */
-const text="🔥 Welcome To Gaming Minhaj Setup Website";
-let i=0;
-
-function type(){
-  if(i<text.length){
-    document.getElementById("typingText").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(type,60);
-  }
-}
-type();
-
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.getElementById("loader").style.display="none";
+    document.body.classList.add("show-ui");
+  },2000);
+});
 </script>
 
 </body>
