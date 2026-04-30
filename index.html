@@ -10,7 +10,9 @@
 <style>
 
 /* 🌌 GLOBAL */
-html { font-size: clamp(14px, 2.5vw, 18px); }
+html {
+  font-size: clamp(14px, 2.5vw, 18px);
+}
 
 body {
   margin: 0;
@@ -20,9 +22,15 @@ body {
   color: #e2e8f0;
   text-align: center;
   line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
 }
 
+h1 { font-size: clamp(22px, 5vw, 36px); }
+h2 { font-size: clamp(18px, 4.5vw, 26px); }
+p  { font-size: clamp(14px, 3.5vw, 16px); }
+
 button{
+  font-size: clamp(13px, 3.5vw, 16px);
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
@@ -43,7 +51,7 @@ button{
 .loader-text{
   font-family:'Orbitron',sans-serif;
   color:#00f5ff;
-  font-size: 14px;
+  font-size: clamp(12px,3vw,14px);
   margin-bottom:15px;
   letter-spacing:2px;
 }
@@ -69,14 +77,15 @@ button{
 header{
   padding:20px;
   font-family:'Orbitron',sans-serif;
-  font-size: clamp(20px, 5vw, 32px);
+  font-size: clamp(20px, 6vw, 34px);
   color:#00f5ff;
   text-shadow:0 0 15px #00f5ff;
   border-bottom:2px solid #00f5ff;
 }
 
+/* LOGO */
 .logo{
-  font-size: clamp(40px, 10vw, 70px);
+  font-size: clamp(35px, 12vw, 80px);
   margin:15px 0;
 }
 
@@ -88,6 +97,10 @@ header{
   padding:25px;
   max-width:500px;
   border-radius:15px;
+}
+
+.card h2{
+  font-size: clamp(16px, 4.5vw, 22px);
 }
 
 /* FADE UI */
@@ -128,12 +141,14 @@ button:active{
   transform:scale(0.97);
 }
 
+/* MAIN BTN */
 .main-btn{
   background:linear-gradient(45deg,#00f5ff,#0ea5e9);
   color:black;
   box-shadow:0 0 20px rgba(0,245,255,0.6);
 }
 
+/* SOCIAL */
 .fb{background:#1877F2; box-shadow:0 0 25px rgba(24,119,242,0.7);}
 .yt{background:#FF0000; box-shadow:0 0 25px rgba(255,0,0,0.7);}
 .tg{background:#0088cc; box-shadow:0 0 25px rgba(0,136,204,0.7);}
@@ -159,34 +174,28 @@ button:active{
   border-radius:12px;
 }
 
-/* ===== FIXED POPUP ANIMATION ===== */
+/* POPUP BUTTON ANIMATION */
 .popup-box button{
   opacity:0;
   transform:translateY(40px);
 }
 
-/* smooth fade + slide up */
 .popup.show .popup-box button{
   animation: popUp 0.5s ease forwards;
 }
 
 @keyframes popUp{
-  0%{
-    opacity:0;
-    transform:translateY(40px);
-  }
-  100%{
-    opacity:1;
-    transform:translateY(0);
-  }
+  0%{opacity:0; transform:translateY(40px);}
+  100%{opacity:1; transform:translateY(0);}
 }
 
-/* stagger (bottom to top feel) */
+/* STAGGER */
 .popup.show .popup-box button:nth-of-type(1){animation-delay:0.1s;}
 .popup.show .popup-box button:nth-of-type(2){animation-delay:0.25s;}
 .popup.show .popup-box button:nth-of-type(3){animation-delay:0.4s;}
+.popup.show .popup-box button:nth-of-type(4){animation-delay:0.55s;}
 
-/* BUTTON COLORS */
+/* POPUP BTN COLORS */
 .popup-box button:not(.setup-btn):not(.close-btn){
   background:linear-gradient(45deg,#00f5ff,#0ea5e9);
   color:black;
@@ -207,7 +216,7 @@ button:active{
 footer{
   margin-top:30px;
   padding:15px;
-  font-size:13px;
+  font-size: clamp(12px, 3vw, 14px);
   opacity:0.7;
 }
 
@@ -256,7 +265,7 @@ footer{
     <p>🔐 Password: No</p>
 
     <button onclick="window.open('https://www.mediafire.com/file/o7wb9sjfv9av195/MR-TOM-GIFT-SEND-PROXY.apk/file')">⬇️ Download App</button>
-    <button class="download-btn" onclick="window.open('https://www.mediafire.com/file/5d45xx0eyd76ke9/eEagle_VPN_2.10.5_110.apk/file')">⬇️ Download Vpn</button>
+    <button onclick="window.open('https://www.mediafire.com/file/5d45xx0eyd76ke9/eEagle_VPN_2.10.5_110.apk/file')">⬇️ Download Vpn</button>
     <button class="setup-btn" onclick="window.open('https://gamingminhajsetup.netlify.app/')">🎬 SET-UP</button>
     <button class="close-btn" onclick="closePopup('popup1')">CLOSE</button>
   </div>
